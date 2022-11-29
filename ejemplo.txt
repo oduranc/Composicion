@@ -1,0 +1,53 @@
+/begin(name)Nombre del documento/end(name)
+
+/begin(title) Titulo del documento /end(title)
+
+/begin(p)
+/begin(u)Renowned for their pan- /begin(b)African presence and/end(b) with a reputation for delivering world-class Digital CustorT 
+Experience and Technology Services, DSC's impact sourcing solution, in partnership with the Maharishi 
+Institute drives the education and skills development of South Africa's youth workforce while simultaneol 
+reduchg youth unemployment, a glaring concern in the country and even more so in a post-pandemic 
+economic climate./end(u)
+/end(p)
+
+/begin(p)
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
+sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+doloremque. Quaerat provident commodi consectetur veniam similique ad 
+earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo 
+fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore 
+suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam 
+totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
+quasi aliquam eligendi, /begin(i)placeat qui corporis!/end(i)
+/end(p)
+
+/begin(list)
+*/begin(b)uno/end(b). Ssflksmfl skfmsa kf msalf f safsf
+*dos
+*tres
+/end(list)
+
+/begin(table)
+| Nombre|Apellido/
+|Amelia |Cepeda/
+ |Oscar|Duran / 
+|Nathalie|Elias/
+|Sahira|Tejada/
+/end(table)
+
+/begin(ref)
+* La ONU preve un freno del comercio maritimo | https://eldinero.com.do/214824/la-onu-preve-un-freno-del-comercio-maritimo-mundial-hasta-el-1-4-en-2022/
+/end(ref)
