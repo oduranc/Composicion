@@ -189,16 +189,10 @@ namespace Composicion
         {
             string text = context.TEXT().GetText();
             builder.Write(text);
-            try
+            if (context.ChildCount > 1)
             {
-                if (!context.content().IsEmpty)
-                {
-                    string content = Visit(context.content());
-                    builder.Write(content);
-                }
-            }
-            catch (NullReferenceException e)
-            {
+                string content = Visit(context.content());
+                builder.Write(content);
             }
             return "";
         }
@@ -206,16 +200,10 @@ namespace Composicion
         {
             string command = Visit(context.command());
             builder.Write(command);
-            try
+            if (context.ChildCount > 1)
             {
-                if (!context.content().IsEmpty)
-                {
-                    string content = Visit(context.content());
-                    builder.Write(content);
-                }
-            }
-            catch (NullReferenceException e)
-            {
+                string content = Visit(context.content());
+                builder.Write(content);
             }
             return "";
         }
