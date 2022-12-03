@@ -35,6 +35,8 @@ do
     try
     {
         tree = parse(input);
+        var composicion = new Composicion.Composicion();
+        composicion.Visit(tree);
         ok = true;
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Documento de word ha sido generado exitosamente!!");
@@ -49,13 +51,14 @@ do
         Console.WriteLine(e.Message);
         Console.ResetColor();
         Console.WriteLine($"{count}");
+
         
 
     }
 
 } while (!ok);
 
-var composicion = new Composicion.Composicion();
+
 
 
 Console.ReadLine();
