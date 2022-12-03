@@ -113,3 +113,111 @@ namespace Composicion
             font.Underline = Underline.None;
             return "";
         }
+        public override string VisitPara([NotNull] ComposicionParser.ParaContext context)
+        {
+            Visit(context.content());
+            builder.Writeln();
+            builder.Writeln();
+            return "";
+        }
+        public override string VisitRef([NotNull] ComposicionParser.RefContext context)
+        {
+            foreach (var item in context.refItem())
+            {
+                Visit(item);
+            }
+            builder.Writeln();
+            return "";
+        }
+        public override string VisitRefItem([NotNull] ComposicionParser.RefItemContext context)
+        {
+            string name = context.TEXT().GetText();
+            string url = context.URL().GetText();
+            font.Italic = true;
+            builder.Write($"\t {name}.");
+            font.Italic = false;
+            font.Underline = Underline.Single;
+            font.Color = System.Drawing.Color.Blue;
+            builder.Write($"{url}");
+            font.Underline = Underline.None;
+            font.Color = System.Drawing.Color.Black;
+            return "";
+        }
+        public override string VisitList([NotNull] ComposicionParser.ListContext context)
+        {
+            builder.ListFormat.ApplyBulletDefault();
+            foreach (var item in context.listItem())
+            {
+                builder.Write(Visit(item));
+            }
+            builder.ListFormat.RemoveNumbers();
+            builder.Writeln();
+            return "";
+        }
+        public override string VisitListItem([NotNull] ComposicionParser.ListItemContext context)
+        {
+            return Visit(context.content());
+        }
+        public override string VisitTable([NotNull] ComposicionParser.TableContext context)
+        {
+            Table table = builder.StartTable();
+            foreach (var item in context.tableRow())
+            {
+                Visit(item);
+            }
+            table.AutoFit(AutoFitBehavior.AutoFitToContents);
+            builder.CellFormat.VerticalAlignment = CellVerticalAlignment.Center;
+            builder.EndTable();
+            builder.Writeln();
+            return "";
+        }
+        public override string VisitTableRow([NotNull] ComposicionParser.TableRowContext context)
+        {
+            foreach (var item in context.tableCell())
+            {
+                builder.InsertCell();
+                builder.Write(Visit(item));
+            }
+            builder.EndRow();
+            return "";
+        }
+        public override string VisitTableCell([NotNull] ComposicionParser.TableCellContext context)
+        {
+            return Visit(context.content());
+        }
+        public override string VisitJustText([NotNull] ComposicionParser.JustTextContext context)
+        {
+            string text = context.TEXT().GetText();
+            builder.Write(text);
+            try
+            {
+                if (!context.content().IsEmpty)
+                {
+                    string content = Visit(context.content());
+                    builder.Write(content);
+                }
+            }
+            catch (NullReferenceException e)
+            {
+            }
+            return "";
+        }
+        public override string VisitJustCommand([NotNull] ComposicionParser.JustCommandContext context)
+        {
+            string command = Visit(context.command());
+            builder.Write(command);
+            try
+            {
+                if (!context.content().IsEmpty)
+                {
+                    string content = Visit(context.content());
+                    builder.Write(content);
+                }
+            }
+            catch (NullReferenceException e)
+            {
+            }
+            return "";
+        }
+    }
+}
