@@ -19,7 +19,7 @@ command : name
         | table
         ;
 
-name: INIT_COMMAND BEGIN NAME_PARAM SP* content INIT_COMMAND END NAME_PARAM SP*;
+name: INIT_COMMAND BEGIN NAME_PARAM SP* TEXT INIT_COMMAND END NAME_PARAM SP*;
 title: INIT_COMMAND BEGIN TITLE_PARAM SP* content INIT_COMMAND END TITLE_PARAM SP*;
 h1: INIT_COMMAND BEGIN H1_PARAM SP* content INIT_COMMAND END H1_PARAM SP*;
 h2: INIT_COMMAND BEGIN H2_PARAM SP* content INIT_COMMAND END H2_PARAM SP*;
@@ -32,15 +32,14 @@ ref: INIT_COMMAND BEGIN REF_PARAM SP* refItem+ INIT_COMMAND END REF_PARAM SP*;
 list: INIT_COMMAND BEGIN LIST_PARAM SP* listItem+ INIT_COMMAND END LIST_PARAM SP*;
 table: INIT_COMMAND BEGIN TABLE_PARAM SP* tableRow+ INIT_COMMAND END TABLE_PARAM SP*;
      
-content : TEXT                          #justText
-        | command                       #justCommand
-        | (command* TEXT command*)+     #textWithCommand
+content : TEXT content?              #justText
+        | command content?           #justCommand
         ;
         
 refItem: ENUM_LIST TEXT DIV URL;
-listItem: ENUM_LIST content;
-tableRow: tableCell+ INIT_COMMAND SP*;
-tableCell: DIV content;
+listItem: ENUM_LIST SP* content;
+tableRow: tableCell+ DIV SP*;
+tableCell: DIV SP* content;
 
 // Lexer rules
 // Param structure
@@ -80,7 +79,7 @@ TABLE: 'table';
 
 // About text
 URL: SP* ('https'|'http') '://' TEXT ('.com'|'.do'|'.pdf'|'.org') ('/' (TEXT '/'?)?)*;
-TEXT: SP* WORD (SP WORD)* SP*;
+TEXT: (SP* WORD (SP* WORD)* SP* EOL*)+;
 WORD: [A-Za-z0-9'"!?#$%&={}+-.]+;
 DIV: '|';
 ENUM_LIST: '*';

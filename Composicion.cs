@@ -118,11 +118,6 @@ namespace Composicion
             return base.VisitTextComp(context);
         }
 
-        public override string VisitTextWithCommand([NotNull] ComposicionParser.TextWithCommandContext context)
-        {
-            return base.VisitTextWithCommand(context);
-        }
-
         public override string VisitTitle([NotNull] ComposicionParser.TitleContext context)
         {
             return base.VisitTitle(context);

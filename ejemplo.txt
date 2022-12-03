@@ -41,11 +41,11 @@ quasi aliquam eligendi, /begin(i)placeat qui corporis!/end(i)
 /end(list)
 
 /begin(table)
-| Nombre|Apellido/
-|Amelia |Cepeda/
- |Oscar|Duran / 
-|Nathalie|Elias/
-|Sahira|Tejada/
+| Nombre|Apellido|
+|Amelia |Cepeda|
+ |Oscar|Duran | 
+|Nathalie|Elias|
+|Sahira|Tejada|
 /end(table)
 
 /begin(ref)

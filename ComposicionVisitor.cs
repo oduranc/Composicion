@@ -136,13 +136,6 @@ public interface IComposicionVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitJustCommand([NotNull] ComposicionParser.JustCommandContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>textWithCommand</c>
-	/// labeled alternative in <see cref="ComposicionParser.content"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitTextWithCommand([NotNull] ComposicionParser.TextWithCommandContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="ComposicionParser.refItem"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
