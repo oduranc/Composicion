@@ -32,7 +32,7 @@ ref: INIT_COMMAND BEGIN REF_PARAM SP* refItem+ INIT_COMMAND END REF_PARAM SP*;
 list: INIT_COMMAND BEGIN LIST_PARAM SP* listItem+ INIT_COMMAND END LIST_PARAM SP*;
 table: INIT_COMMAND BEGIN TABLE_PARAM SP* tableRow+ INIT_COMMAND END TABLE_PARAM SP*;
      
-content : TEXT+                         #justText
+content : TEXT                          #justText
         | command                       #justCommand
         | (command* TEXT command*)+     #textWithCommand
         ;

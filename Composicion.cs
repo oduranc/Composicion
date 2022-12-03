@@ -1,14 +1,28 @@
 ﻿using Antlr4.Runtime.Misc;
+using Aspose.Words;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Composicion
 {
     internal class Composicion : ComposicionBaseVisitor<string>
     {
+        Aspose.Words.Document doc = new Aspose.Words.Document();
+        DocumentBuilder builder;
+        public Composicion()
+        {
+            builder = new DocumentBuilder(doc);
+            Font font = builder.Font;
+            font.Size = 12;
+            font.Color = System.Drawing.Color.Black;
+            font.Name = "Arial";
+        }
+
         public override string VisitBold([NotNull] ComposicionParser.BoldContext context)
         {
             return base.VisitBold(context);
@@ -42,6 +56,11 @@ namespace Composicion
         public override string VisitItalic([NotNull] ComposicionParser.ItalicContext context)
         {
             return base.VisitItalic(context);
+        }
+
+        public override string VisitJustCommand([NotNull] ComposicionParser.JustCommandContext context)
+        {
+            return base.VisitJustCommand(context);
         }
 
         public override string VisitJustText([NotNull] ComposicionParser.JustTextContext context)
