@@ -24,11 +24,9 @@ IParseTree parse(string textFile)
 }
 
 
-bool ok = true;
+bool ok = false;
 IParseTree? tree = null;
 string input;
-int count = 0;
-
 do
 {
     input = textFile;
@@ -45,20 +43,13 @@ do
     }
     catch (ParseCanceledException e)
     {
-        count++;
         Console.WriteLine("No se ha podido generar el documento de word debido a errores\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(e.Message);
         Console.ResetColor();
-        Console.WriteLine($"{count}");
-
-        
-
     }
+    ok = true;
 
 } while (!ok);
-
-
-
 
 Console.ReadLine();
